@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dinky Battle Design System - Pixel Art Fighting Game */
+
+@layer base {
+  :root {
+    /* Dinky Battle - Dark theme with vibrant arcade elements */
+    --background: 220 35% 12%;
+    --foreground: 45 100% 95%;
+
+    --card: 220 30% 16%;
+    --card-foreground: 45 100% 95%;
+
+    --popover: 220 35% 14%;
+    --popover-foreground: 45 100% 95%;
+
+    /* Bright cyan primary - from game UI */
+    --primary: 190 100% 50%;
+    --primary-foreground: 220 35% 12%;
+
+    /* Vibrant pink/magenta secondary */
+    --secondary: 320 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Warm orange accent */
+    --accent: 25 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Muted tones for dark theme */
+    --muted: 220 25% 25%;
+    --muted-foreground: 210 15% 70%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 28%;
+    --input: 220 25% 22%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.25rem;
+
+    /* Arcade gradients - bright and playful */
+    --gradient-sky: linear-gradient(180deg, hsl(200 80% 70%) 0%, hsl(180 70% 80%) 100%);
+    --gradient-game: linear-gradient(135deg, hsl(190 100% 50%) 0%, hsl(320 100% 55%) 100%);
+    --gradient-wood: linear-gradient(180deg, hsl(30 40% 50%) 0%, hsl(25 35% 40%) 100%);
+    --gradient-winner: linear-gradient(135deg, hsl(50 100% 60%) 0%, hsl(35 100% 55%) 100%);
+    --gradient-cosmic: linear-gradient(135deg, hsl(220 40% 15%) 0%, hsl(250 45% 25%) 50%, hsl(280 40% 20%) 100%);
+    
+    /* Simple shadows - no excessive glow */
+    --shadow-solid: 4px 4px 0px hsl(0 0% 0% / 0.2);
+    --shadow-arcade: 6px 6px 0px hsl(0 0% 0% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.2s ease-out;
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+  }
+
+  /* Smooth scroll for parallax effect */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Dinky Battle Typography System */
+  
+  /* Main pixel art title style - white with dark outline */
+  .pixel-title {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    color: hsl(0 0% 100%);
+    text-shadow: 
+      -3px -3px 0 hsl(0 0% 0%),
+      3px -3px 0 hsl(0 0% 0%),
+      -3px 3px 0 hsl(0 0% 0%),
+      3px 3px 0 hsl(0 0% 0%),
+      -3px 0 0 hsl(0 0% 0%),
+      3px 0 0 hsl(0 0% 0%),
+      0 -3px 0 hsl(0 0% 0%),
+      0 3px 0 hsl(0 0% 0%);
+  }
+
+  /* Colorful pixel text with playful shadows */
+  .pixel-text-3d {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    color: hsl(0 0% 100%);
+    text-shadow: 
+      3px 3px 0px hsl(190 100% 50%),
+      6px 6px 0px hsl(320 100% 55%),
+      9px 9px 0px hsl(25 100% 55%);
+  }
+
+  /* Clean body text - white, sans-serif */
+  .text-body {
+    font-family: 'Inter', sans-serif;
+    color: hsl(0 0% 100%);
+    font-weight: 500;
+  }
+
+  /* Arcade card style - solid and clean */
+  .card-arcade {
+    @apply bg-card border-4 border-foreground/20;
+    box-shadow: var(--shadow-solid);
+  }
+
+  /* Arcade button style - no glow, solid shadow */
+  .btn-arcade {
+    box-shadow: var(--shadow-arcade);
+    transition: var(--transition-smooth);
+    border: 3px solid hsl(0 0% 0% / 0.2);
+  }
+
+  .btn-arcade:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 0px hsl(0 0% 0% / 0.3);
+  }
+
+  .btn-arcade:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 0px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Light section overlay for readability */
+  .section-overlay {
+    @apply relative;
+  }
+
+  .section-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-background/60;
+    z-index: 1;
+  }
+
+  .section-overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
